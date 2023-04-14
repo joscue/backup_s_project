@@ -1,0 +1,32 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+.main {
+    width: 80%;
+    margin: 0 auto;
+
+}
+
+.head {
+    width: 100%;
+    height: 70px;
+    background-color: rgb(50, 50, 255);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.lhead {
+    color: rgb(255, 255, 255);
+    padding: 0px 30px;
+}
+.rhead {
+    color: rgb(255, 255, 255);
+    padding: 0px 30px;
+}
+.bmain {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
