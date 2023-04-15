@@ -11,13 +11,19 @@ class User:
         self.last_name = ['last_name']
         self.email = ['email']
         self.birthday = ['birthday']
+        self.skills = ['skills']
+        self.resume = ['resume']
+        self.address = ['address']
+        self.city = ['city']
+        self.state = ['state']
         self.password = ['password']
         self.created_at = ['created_at']
         self.updated_at = ['updated_at']
-
+  
     @classmethod
     def create_user(cls,data):
-        query = "INSERT INTO users ( first_name, last_name, email, birthday, password, created_at, updated_at ) VALUES ( %(first_name)s, %(last_name)s, %(email)s, %(birthday)s, %(password)s, NOW(), NOW() )"
+        query = "INSERT INTO users ( first_name, last_name, email, birthday, skills, resume, address, city, state, password, created_at, updated_at ) VALUES ( %(first_name)s, %(last_name)s, %(email)s, %(birthday)s, %(skills)s, %(resume)s, %(address)s, %(city)s, %(state)s, %(password)s, NOW(), NOW() )"
+
         return connectToMySQL(User.db).query_db(query,data)
     
     @classmethod

@@ -13,20 +13,21 @@
         <h2 class="rhead">Welcome!</h2>
     </div>
     <div class="bmain">
-        <div class="u_i">
-            <h2>Tradesman</h2>
-            <div class="mreg">
+        <div class="reg_log">
+            <div class="reg">
+                <h2 class="treg">Tradesman</h2>
                 <h3>Register</h3>
                 {% for message in get_flashed_messages(category_filter=['register']) %}
                     <p>{{message}}</p>
                 {% endfor %}
-                <form action="/register" method="POST">
+                <form action="user/register" method="POST">
                     <p>First Name:</p>
                     <textarea name="fname" id="" cols="20" rows="1"></textarea>
                     <p>Last Name:</p>
                     <textarea name="lname" id="" cols="20" rows="1"></textarea>
                     <p>Email:</p>
                     <textarea name="eml" id="" cols="20" rows="1"></textarea>
+                    <input type="date" name="bday" id="">
                     <p>Password:</p>
                     <textarea name="pswd" id="" cols="20" rows="1"></textarea>
                     <p>Confirm:</p>
@@ -36,12 +37,12 @@
                     </div>
                 </form>
             </div>
-            <div class="mlog">
+            <div class="log">
                 {% for message in get_flashed_messages(category_filter=['login']) %}
                     <p>{{message}}</p>
                 {% endfor %}
                 <h3>Log in</h3>
-                <form action="/login" method="POST">
+                <form action="user/login" method="POST">
                     <p>Email:</p>
                     <textarea name="eml" id="" cols="20" rows="1"></textarea>
                     <p>Password:</p>
@@ -52,20 +53,22 @@
                 </form>
             </div>
         </div>
-        <div class="b_i">
-            <h2>Business</h2>
-            <div class="mreg">
+        <div class="reg_log">
+            <h2 class="treg">Business</h2>
+            <div class="reg">
                 <h3>Register</h3>
                 {% for message in get_flashed_messages(category_filter=['register']) %}
                     <p>{{message}}</p>
                 {% endfor %}
-                <form action="/register" method="POST">
+                <form action="business/register" method="POST">
                     <p>First Name:</p>
                     <textarea name="fname" id="" cols="20" rows="1"></textarea>
                     <p>Last Name:</p>
                     <textarea name="lname" id="" cols="20" rows="1"></textarea>
                     <p>Email:</p>
                     <textarea name="eml" id="" cols="20" rows="1"></textarea>
+                    <p>Name of Business</p>
+                    <textarea name="bname" id="" cols="20" rows="1"></textarea>
                     <p>Password:</p>
                     <textarea name="pswd" id="" cols="20" rows="1"></textarea>
                     <p>Confirm:</p>
@@ -75,12 +78,12 @@
                     </div>
                 </form>
             </div>
-            <div class="mlog">
+            <div class="log">
                 {% for message in get_flashed_messages(category_filter=['login']) %}
                     <p>{{message}}</p>
                 {% endfor %}
                 <h3>Log in</h3>
-                <form action="/login" method="POST">
+                <form action="business/login" method="POST">
                     <p>Email:</p>
                     <textarea name="eml" id="" cols="20" rows="1"></textarea>
                     <p>Password:</p>
@@ -92,6 +95,5 @@
             </div>
         </div>
     </div>
-    
 </body>
 </html>
