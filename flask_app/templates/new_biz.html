@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstraps</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/new.css') }}">
+</head>
+<body>
+    <div class="head">
+        <h1 class="lhead">Bootstraps</h1>
+        <h2 class="rhead">Already have an account? <a class="link" href="http://localhost:5000/"> Log in</a></h2>
+    </div>
+    <div class="reg">
+        <h3 class="treg tbig">Get started! Register today!</h3>
+        {% for message in get_flashed_messages(category_filter=['register']) %}
+            <p>{{message}}</p>
+        {% endfor %}
+        <form class="form" action="business/register" method="POST">
+            <div class="box">
+                <p class="left big">First Name:</p>
+                <textarea class="text right big" name="fname" id="" cols="20" rows="1"></textarea>
+                <p class="left big">Last Name:</p>
+                <textarea class="text right big" name="lname" id="" cols="20" rows="1"></textarea>
+                <p class="left big">Email:</p>
+                <textarea class="text right big" name="eml" id="" cols="20" rows="1"></textarea>
+            </div>
+            <div class="box">
+                <p class="sleft big">Name of Business</p>
+                <textarea class="text sright big" name="bname" id="" cols="20" rows="1"></textarea>
+                <p class="sleft big">Address:</p>
+                <textarea class="text sright big" name="adrs" id="" cols="20" rows="1"></textarea>
+                <p class="sleft big">City:</p>
+                <textarea class="text sright big" name="city" id="" cols="20" rows="1"></textarea>
+                <p class="sleft big">State:</p>
+                <textarea class="text sright big" name="st" id="" cols="3" rows="1"></textarea>
+            </div>
+            <div class="box">
+                <p class="bleft big">Password:</p>
+                <textarea class="text bright big" name="pswd" id="" cols="20" rows="1"></textarea>
+                <p class="bleft big">Confirm:</p>
+                <textarea class="text bright big" name="con" id="" cols="20" rows="1"></textarea>
+            </div>
+            <div class="bcenter">
+                <input class="button big" type="submit" value="Register">
+            </div>
+        </form>
+    </div>
+</body>
+</html>

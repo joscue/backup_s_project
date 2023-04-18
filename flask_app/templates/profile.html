@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstraps</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/new.css') }}">
+</head>
+<body>
+    <div class="head">
+        <h1 class="lhead">Bootstraps</h1>
+        <h2 class="rhead">Already have an account? <a class="link" href="http://localhost:5000/"> Log in</a></h2>
+    </div>
+    <div class="reg">
+        <h3 class="treg">Get started! Register today!</h3>
+        {% for message in get_flashed_messages(category_filter=['register']) %}
+            <p>{{message}}</p>
+        {% endfor %}
+        <form action="/user/register" method="POST">
+            <div class="first">
+                <p class="left">First Name:</p>
+                <textarea class="right text" name="fname" id="" cols="20" rows="1"></textarea>
+                <p class="left">Last Name:</p>
+                <textarea class="right text" name="lname" id="" cols="20" rows="1"></textarea>
+                <p class="left">Email:</p>
+                <textarea class="right text" name="eml" id="" cols="30" rows="1"></textarea>
+            </div>
+            <div class="rest">
+                <div class="second">
+                    <div class="fsecond">
+                        <p class="left">Birthday:</p>
+                        <input class="right" type="date" name="bday" id="">
+                        <p class="left">Resume:</p>
+                        <input class="right" type="file" name="rsm">
+                    </div>
+                    <div class="first">
+                        <p class="left">Street Address</p>
+                        <textarea class="text" name="adrs" id="" cols="30" rows="1"></textarea>
+                        <p>City:</p>
+                        <textarea class="text" name="city" id="" cols="20" rows="1"></textarea>
+                        <p>State</p>
+                        <textarea class="text" name="st" id="" cols="2" rows="1"></textarea>
+                        
+                    </div>
+                    <div class="first">
+                        <p class="left">Password:</p>
+                        <textarea class="right text" name="pswd" id="" cols="20" rows="1"></textarea>
+                        <p class="left">Confirm:</p>
+                        <textarea class="right text" name="con" id="" cols="20" rows="1"></textarea>
+                    </div>
+                    <p class="treg">Enter the years of experience you have in each field, if none then just write "0"</p>
+                    <div class="categ">
+                        <div class="lcat">
+                            <div class="cat">
+                                <p>Carpentry</p>
+                                <input name="carp" type="number">
+                            </div>
+                            <div class="cat">
+                                <p>Cement</p>
+                                <input name="cem" type="number">
+                            </div>
+                        </div>
+                        <div class="lcat">
+                            <div class="cat">
+                                <p>Drywall</p>
+                                <input name="dry" type="number">
+                            </div>
+                            <div class="cat">
+                                <p>Heavy Machinery</p>
+                                <input name="hvmc" type="number">
+                            </div>
+                        </div>
+                        <div class="lcat">
+                            <div class="cat">
+                                <p>High Voltage Electricity</p>
+                                <input name="high" type="number">
+                            </div>
+                            <div class="cat">
+                                <p>Home Electricity</p>
+                                <input name="home" type="number">
+                            </div>
+                        </div>
+                        <div class="lcat">
+                            <div class="cat">
+                                <p>HVAC</p>
+                                <input name="hvac" type="number">
+                            </div>
+                            <div class="cat">
+                                <p>Plumbing</p>
+                                <input name="plmg" type="number">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="third">
+                    <p class="tdesc treg">Brief description of your skills:</p>
+                    <textarea class="text" name="desc" id="" cols="33" rows="20"></textarea>
+                </div>
+                
+            </div>
+            
+            <div class="center">
+                <input class="button" type="submit" value="Register">
+            </div>
+        </form>
+    </div>
+</body>
+</html>
