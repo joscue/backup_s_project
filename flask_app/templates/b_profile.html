@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstraps</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/new.css') }}">
+</head>
+<body>
+    <div class="head">
+        <h1 class="lhead">Bootstraps</h1>
+        <div class="rhead  shead">
+            <h2><a class="link" href="http://localhost:5000/new/job">Post a job!</a></h2>
+            <h2 class="rhead"><a class="link" href="http://localhost:5000/user/logout">Logout</a></h2>
+        </div>
+        
+    </div>
+    <div class="reg">
+        <h3 class="treg tbig">Get started! Register today!</h3>
+        <div class="cont">
+            <div class="ljob">
+                <div>
+                    <p class="big">Your job postings:</p>
+                    <ul>
+                        <li></li>
+                    </ul>
+                </div>
+            </div>
+            <form class="form bottom" action="business/register" method="POST">
+                <div class="box">
+                    <p class="big">First Name:  {{biz.first_name}}</p>
+                    <p class="big">Last Name: {{biz.last_name}}</p>
+                </div>
+                <div class="box">
+                    <p class="big">Name of Business: {{biz.business_name}}</p>
+                    <p class="big">Email: {{biz.email}}</p>
+                </div>
+                    
+                <div class="box">
+                    <p class="big">Address: {{biz.address}}</p>
+                    <p class="big">City: {{biz.city}}</p>
+                    <p class="big">State: {{biz.state}}</p>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

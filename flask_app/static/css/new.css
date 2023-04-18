@@ -105,6 +105,7 @@
     align-items: center;
 }
 .form {
+    width: 70%;
     height: 450px;
     display: flex;
     flex-direction: column;
@@ -135,4 +136,18 @@
 }
 .tbig {
     font-size: 170%;
+}
+/*profile ------------------------------------*/
+.shead {
+    width: 300px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.cont{
+    display: flex;
+    justify-content: space-between;
+}
+.bottom {
+    margin-bottom: 30px;
 }

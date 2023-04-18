@@ -7,28 +7,27 @@ class User:
     db = 'solo_project_b'
     def __init__(self,data):
         self.id = data['id']
-        self.first_name = ['first_name']
-        self.last_name = ['last_name']
-        self.email = ['email']
-        self.birthday = ['birthday']
-        self.skills = ['skills']
-        self.resume = ['resume']
-        self.address = ['address']
-        self.city = ['city']
-        self.state = ['state']
-        self.password = ['password']
-        self.created_at = ['created_at']
-        self.updated_at = ['updated_at']
+        self.first_name = data['first_name']
+        self.last_name = data['last_name']
+        self.email = data['email']
+        self.birthday = data['birthday']
+        self.skills = data['skills']
+        self.resume = data['resume']
+        self.address = data['address']
+        self.city = data['city']
+        self.state = data['state']
+        self.password = data['password']
+        self.created_at = data['created_at']
+        self.updated_at = data['updated_at']
   
     @classmethod
     def create_user(cls,data):
-        query = "INSERT INTO users ( first_name, last_name, email, birthday, skills, resume, address, city, state, password, created_at, updated_at ) VALUES ( %(first_name)s, %(last_name)s, %(email)s, %(birthday)s, %(skills)s, %(resume)s, %(address)s, %(city)s, %(state)s, %(password)s, NOW(), NOW() )"
-
+        query = "INSERT INTO users ( first_name, last_name, email, birthday, skills, resume, address, city, state, password, created_at, updated_at ) VALUES ( %(first_name)s, %(last_name)s, %(email)s, %(birthday)s, %(skills)s, %(resume)s, %(address)s, %(city)s, %(state)s, %(password)s, NOW(), NOW() );"
         return connectToMySQL(User.db).query_db(query,data)
 
     @classmethod
     def get_user(cls,data):
-        query = "SELECT FROM users WHERE id = %(id)s"
+        query = "SELECT * FROM users WHERE id = %(id)s;"
         results = connectToMySQL(User.db).query_db(query,data)
         return cls(results[0])
     
@@ -67,22 +66,28 @@ class Trade:
     def __init__(self,data):
         self.id = data['id']
         self.carpentry = data['carpentry']
-        self.cement = data['cment']
+        self.cement = data['cement']
         self.drywall = data['drywall']
         self.heavy_machinery = data['heavy_machinery']
         self.high_v_electricity = data['high_v_electricity']
         self.home_electricity = data['home_electricity']
         self.hvac = data['hvac']
         self.plumbing = data['plumbing']
+        self.user_id = data['user_id']
 
     @classmethod
     def save_skills(cls,data):
-        query = "INSERT INTO skills ( carpentry, cement, drywall, heavy_machinery, high_v_electricity, home_electricity, hvac, plumbing ) VALUE ( %(carpentry)s, %(cement)s, %(drywall)s, %(heavy_machinery)s, %(high_v_electricity)s, %(home_electricity)s, %(hvac)s, %(plumbing)s, )"
+        query = "INSERT INTO trades ( carpentry, cement, drywall, heavy_machinery, high_v_electricity, home_electricity, hvac, plumbing, user_id ) VALUE ( %(carpentry)s, %(cement)s, %(drywall)s, %(heavy_machinery)s, %(high_v_electricity)s, %(home_electricity)s, %(hvac)s, %(plumbing)s, %(user_id)s );"
 
         return connectToMySQL(User.db).query_db(query,data)
     
     @classmethod
-    def get_skills(cls):
-        query = "SELECT * FROM trades WHERE user_id = %(user_id)s"
+    def get_skills(cls,data):
+        query = "SELECT * FROM trades WHERE user_id = %(user_id)s;"
+        results = connectToMySQL(User.db).query_db(query,data)
+        return cls(results[0])
+    @classmethod
+    def get_user(cls,data):
+        query = "SELECT * FROM users WHERE id = %(id)s;"
         results = connectToMySQL(User.db).query_db(query,data)
         return cls(results[0])

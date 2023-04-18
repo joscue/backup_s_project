@@ -15,6 +15,7 @@ def dash():
 @app.route('/new/user')
 def new_user():
     return render_template('new_user.html')
+
 @app.route('/user/register',methods=["POST"])
 def ureg():
     if not User.validate_register(request.form):
@@ -24,7 +25,7 @@ def ureg():
         "last_name": request.form['lname'],
         "email": request.form['eml'],
         "birthday": request.form['bday'],
-        "skills": request.form['skl'],
+        "skills": request.form['desc'],
         "resume": request.form['rsm'],
         "address": request.form['adrs'],
         "city": request.form['city'],
@@ -38,21 +39,28 @@ def ureg():
         "cement": request.form['cem'],
         "drywall": request.form['dry'],
         "heavy_machinery": request.form['hvmc'],
-        "high_v_electrivity": request.form['high'],
+        "high_v_electricity": request.form['high'],
         "home_electricity": request.form['home'],
         "hvac": request.form['hvac'],
         "plumbing": request.form['plmg'],
         "user_id": session['user_id']
     }
-    User.save_skills(skills)
-    return redirect('user/profile')
+    Trade.save_skills(skills)
+    return redirect('/user/profile')
 
-app.route('/user/profile')
+@app.route('/user/profile')
 def prof():
-
-    return render_template( 'profile.html')
-
-app.route('/create/profile')
+    data ={
+        "id": session['user_id']
+    }
+    skills = {
+        "user_id": session['user_id']
+    }
+    return render_template('profile.html', user = User.get_user(data), trade = Trade.get_skills(skills))
+@app.route('/user/dashboard')
+def udash():
+    return render_template('u_dashboard.html')
+@app.route('/create/profile')
 def create_prof():
 #   need validation
     data = {
@@ -64,3 +72,8 @@ def create_prof():
         "state": request.form['state'],
         "email": request.form['eml'],
     }
+@app.route('/user/logout')
+def logout():
+    if 'user_id' in session:
+        session.pop('user_id')
+    return redirect('/')

@@ -10,100 +10,71 @@
 <body>
     <div class="head">
         <h1 class="lhead">Bootstraps</h1>
-        <h2 class="rhead">Already have an account? <a class="link" href="http://localhost:5000/"> Log in</a></h2>
+        <div class="rhead  shead">
+            <h2><a class="link" href="http://localhost:5000/user/dashboard">Find a job!</a></h2>
+            <h2 class="rhead"><a class="link" href="http://localhost:5000/user/logout">Logout</a></h2>
+        </div>
     </div>
     <div class="reg">
-        <h3 class="treg">Get started! Register today!</h3>
-        {% for message in get_flashed_messages(category_filter=['register']) %}
-            <p>{{message}}</p>
-        {% endfor %}
-        <form action="/user/register" method="POST">
+        <a class="big left" href="http://localhost:5000/user/edit">Edit</a>
             <div class="first">
-                <p class="left">First Name:</p>
-                <textarea class="right text" name="fname" id="" cols="20" rows="1"></textarea>
-                <p class="left">Last Name:</p>
-                <textarea class="right text" name="lname" id="" cols="20" rows="1"></textarea>
-                <p class="left">Email:</p>
-                <textarea class="right text" name="eml" id="" cols="30" rows="1"></textarea>
+                <p class="left big">First Name: {{user.first_name}}</p>
+                <p class="big">Last Name: {{user.last_name}}</p>
+                <p class="right big">Email: {{user.email}}</p>
             </div>
             <div class="rest">
                 <div class="second">
                     <div class="fsecond">
-                        <p class="left">Birthday:</p>
-                        <input class="right" type="date" name="bday" id="">
-                        <p class="left">Resume:</p>
-                        <input class="right" type="file" name="rsm">
+                        <p class="left big">Birthday: {{user.birthday}}</p>
+                        <p class="right big">Resume:</p>
                     </div>
                     <div class="first">
-                        <p class="left">Street Address</p>
-                        <textarea class="text" name="adrs" id="" cols="30" rows="1"></textarea>
-                        <p>City:</p>
-                        <textarea class="text" name="city" id="" cols="20" rows="1"></textarea>
-                        <p>State</p>
-                        <textarea class="text" name="st" id="" cols="2" rows="1"></textarea>
-                        
+                        <p class="left big">Street Address: {{user.address}}</p>
+                        <p class="big">City: {{user.city}}</p>
+                        <p class="right big">State: {{user.state}}</p>
                     </div>
-                    <div class="first">
-                        <p class="left">Password:</p>
-                        <textarea class="right text" name="pswd" id="" cols="20" rows="1"></textarea>
-                        <p class="left">Confirm:</p>
-                        <textarea class="right text" name="con" id="" cols="20" rows="1"></textarea>
-                    </div>
-                    <p class="treg">Enter the years of experience you have in each field, if none then just write "0"</p>
+                    <p class="treg big">Years of experience:</p>
                     <div class="categ">
                         <div class="lcat">
                             <div class="cat">
-                                <p>Carpentry</p>
-                                <input name="carp" type="number">
+                                <p class="big">Carpentry: {{trade.carpentry}}</p>
                             </div>
                             <div class="cat">
-                                <p>Cement</p>
-                                <input name="cem" type="number">
+                                <p class="big">Cement: {{trade.cement}}</p>
                             </div>
                         </div>
                         <div class="lcat">
                             <div class="cat">
-                                <p>Drywall</p>
-                                <input name="dry" type="number">
+                                <p class="big">Drywall: {{trade.drywall}}</p>
                             </div>
                             <div class="cat">
-                                <p>Heavy Machinery</p>
-                                <input name="hvmc" type="number">
+                                <p class="big">Heavy Machinery: {{trade.heavy_machinery}}</p>
                             </div>
                         </div>
                         <div class="lcat">
                             <div class="cat">
-                                <p>High Voltage Electricity</p>
-                                <input name="high" type="number">
+                                <p class="big">High Voltage Electricity: {{trade.high_v_electricity}}</p>
                             </div>
                             <div class="cat">
-                                <p>Home Electricity</p>
-                                <input name="home" type="number">
+                                <p class="big">Home Electricity: {{trade.home_electricity}}</p>
                             </div>
                         </div>
                         <div class="lcat">
                             <div class="cat">
-                                <p>HVAC</p>
-                                <input name="hvac" type="number">
+                                <p class="big">HVAC: {{trade.hvac}}</p>
                             </div>
                             <div class="cat">
-                                <p>Plumbing</p>
-                                <input name="plmg" type="number">
+                                <p class="big">Plumbing: {{trade.plumbing}}</p>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="third">
-                    <p class="tdesc treg">Brief description of your skills:</p>
-                    <textarea class="text" name="desc" id="" cols="33" rows="20"></textarea>
+                    <p class="tdesc treg big">Your description:</p>
+                    <p class="big">{{user.skills}}</p>
                 </div>
                 
             </div>
-            
-            <div class="center">
-                <input class="button" type="submit" value="Register">
-            </div>
-        </form>
     </div>
 </body>
 </html>
