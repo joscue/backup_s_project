@@ -12,86 +12,52 @@
         <h1 class="lhead">Bootstraps</h1>
         <h2 class="rhead">Welcome!</h2>
     </div>
+    <h2 class="intro">Get Started</h2>
     <div class="bmain">
         <div class="reg_log">
-            <div class="reg">
-                <h2 class="treg">Tradesman</h2>
-                <h3>Register</h3>
-                {% for message in get_flashed_messages(category_filter=['register']) %}
-                    <p>{{message}}</p>
-                {% endfor %}
-                <form action="user/register" method="POST">
-                    <p>First Name:</p>
-                    <textarea name="fname" id="" cols="20" rows="1"></textarea>
-                    <p>Last Name:</p>
-                    <textarea name="lname" id="" cols="20" rows="1"></textarea>
-                    <p>Email:</p>
-                    <textarea name="eml" id="" cols="20" rows="1"></textarea>
-                    <input type="date" name="bday" id="">
-                    <p>Password:</p>
-                    <textarea name="pswd" id="" cols="20" rows="1"></textarea>
-                    <p>Confirm:</p>
-                    <textarea name="con" id="" cols="20" rows="1"></textarea>
-                    <div>
-                        <input class="button" type="submit" value="Register">
-                    </div>
-                </form>
-            </div>
+            <h2 class="tlog">Tradesman</h2>
             <div class="log">
                 {% for message in get_flashed_messages(category_filter=['login']) %}
                     <p>{{message}}</p>
                 {% endfor %}
-                <h3>Log in</h3>
+                <h3 class="llog">Log in</h3>
                 <form action="user/login" method="POST">
-                    <p>Email:</p>
-                    <textarea name="eml" id="" cols="20" rows="1"></textarea>
-                    <p>Password:</p>
-                    <textarea name="pswd" id="" cols="20" rows="1"></textarea>
+                    <div class="clog">
+                        <p class="plog">Email:</p>
+                        <textarea class="lllog" name="eml" id="" cols="20" rows="1"></textarea>
+                    </div>
+                    <div class="clog">
+                        <p class="plog">Password:</p>
+                        <textarea class="lllog" name="pswd" id="" cols="20" rows="1"></textarea>
+                    </div>
                     <div>
                         <input class="button" type="submit" value="Log in">
                     </div>
                 </form>
+                <p class="rlog">Don't have an account yet? <a class="rllog" href="http://localhost:5000/new/user">Sign up here!</a></p>
             </div>
         </div>
         <div class="reg_log">
-            <h2 class="treg">Business</h2>
-            <div class="reg">
-                <h3>Register</h3>
-                {% for message in get_flashed_messages(category_filter=['register']) %}
-                    <p>{{message}}</p>
-                {% endfor %}
-                <form action="business/register" method="POST">
-                    <p>First Name:</p>
-                    <textarea name="fname" id="" cols="20" rows="1"></textarea>
-                    <p>Last Name:</p>
-                    <textarea name="lname" id="" cols="20" rows="1"></textarea>
-                    <p>Email:</p>
-                    <textarea name="eml" id="" cols="20" rows="1"></textarea>
-                    <p>Name of Business</p>
-                    <textarea name="bname" id="" cols="20" rows="1"></textarea>
-                    <p>Password:</p>
-                    <textarea name="pswd" id="" cols="20" rows="1"></textarea>
-                    <p>Confirm:</p>
-                    <textarea name="con" id="" cols="20" rows="1"></textarea>
-                    <div>
-                        <input class="button" type="submit" value="Register">
-                    </div>
-                </form>
-            </div>
+            <h2 class="tlog">Business</h2>
             <div class="log">
                 {% for message in get_flashed_messages(category_filter=['login']) %}
                     <p>{{message}}</p>
                 {% endfor %}
-                <h3>Log in</h3>
+                <h3 class="llog">Log in</h3>
                 <form action="business/login" method="POST">
-                    <p>Email:</p>
-                    <textarea name="eml" id="" cols="20" rows="1"></textarea>
-                    <p>Password:</p>
-                    <textarea name="pswd" id="" cols="20" rows="1"></textarea>
+                    <div class="clog">
+                        <p class="plog">Email:</p>
+                        <textarea class="lllog" name="eml" id="" cols="20" rows="1"></textarea>
+                    </div>
+                    <div class="clog">
+                        <p class="plog">Password:</p>
+                        <textarea class="lllog" name="pswd" id="" cols="20" rows="1"></textarea>
+                    </div>
                     <div>
                         <input class="button" type="submit" value="Log in">
                     </div>
                 </form>
+                <p class="rlog">Don't have an account yet? <a class="rllog" href="http://localhost:5000/new/biz">Sign up here!</a></p>
             </div>
         </div>
     </div>

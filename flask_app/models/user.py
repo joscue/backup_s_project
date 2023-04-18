@@ -25,7 +25,7 @@ class User:
         query = "INSERT INTO users ( first_name, last_name, email, birthday, skills, resume, address, city, state, password, created_at, updated_at ) VALUES ( %(first_name)s, %(last_name)s, %(email)s, %(birthday)s, %(skills)s, %(resume)s, %(address)s, %(city)s, %(state)s, %(password)s, NOW(), NOW() )"
 
         return connectToMySQL(User.db).query_db(query,data)
-    
+
     @classmethod
     def get_user(cls,data):
         query = "SELECT FROM users WHERE id = %(id)s"
@@ -61,3 +61,28 @@ class User:
             flash("Passwords don't match","register")
             is_valid = False
         return is_valid
+    
+class Trade:
+    db = 'solo_project_b'
+    def __init__(self,data):
+        self.id = data['id']
+        self.carpentry = data['carpentry']
+        self.cement = data['cment']
+        self.drywall = data['drywall']
+        self.heavy_machinery = data['heavy_machinery']
+        self.high_v_electricity = data['high_v_electricity']
+        self.home_electricity = data['home_electricity']
+        self.hvac = data['hvac']
+        self.plumbing = data['plumbing']
+
+    @classmethod
+    def save_skills(cls,data):
+        query = "INSERT INTO skills ( carpentry, cement, drywall, heavy_machinery, high_v_electricity, home_electricity, hvac, plumbing ) VALUE ( %(carpentry)s, %(cement)s, %(drywall)s, %(heavy_machinery)s, %(high_v_electricity)s, %(home_electricity)s, %(hvac)s, %(plumbing)s, )"
+
+        return connectToMySQL(User.db).query_db(query,data)
+    
+    @classmethod
+    def get_skills(cls):
+        query = "SELECT * FROM trades WHERE user_id = %(user_id)s"
+        results = connectToMySQL(User.db).query_db(query,data)
+        return cls(results[0])

@@ -6,17 +6,18 @@
 .main {
     width: 100%;
     margin: 0 auto;
+    background-color: rgb(221, 221, 221);
 
 }
 
 .head {
     width: 100%;
     height: 70px;
-    background-color: rgb(50, 50, 255);
+    background-color: rgb(42, 42, 191);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 50px;
+    margin-bottom: 40px;
 }
 .lhead {
     color: rgb(255, 255, 255);
@@ -26,8 +27,57 @@
     color: rgb(255, 255, 255);
     padding: 0px 50px;
 }
+.intro {
+    text-align: center;
+    font-size: 200%;
+    margin-bottom: 40px;
+}
 .bmain {
     width: 100%;
     display: flex;
     justify-content: space-around;
 }
+.reg_log {
+    background-color: rgb(246, 246, 246);
+    width: 30%;
+    height: 450px;
+    border: 1px solid rgb(130, 130, 130);
+    padding: 4%;
+    border-radius: 25px;
+}
+.tlog {
+    margin-bottom: 50px;
+    text-align: center;
+    font-size: 160%;
+}
+.llog {
+    margin-bottom: 40px;
+    font-size: 140%;
+}
+.clog {
+    display: flex;
+    justify-content: space-between;
+}
+.plog {
+    margin-bottom: 10px;
+    font-size: 130%;
+}
+.lllog {
+    margin-bottom: 40px;
+    width: 250px;
+    height: 25px;
+    font-size: 130%;
+    padding: 10px;
+}
+.button {
+    background-color: #fff;
+    padding: 10px 20px;
+    font-weight: bolder;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+.rlog {
+    margin-top: 40px;
+    font-size: 130%;
+}
+

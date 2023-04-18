@@ -1,6 +1,6 @@
 from flask_app import app
 from flask import render_template,redirect,request,session,flash
-from flask_app.models.user import User
+from flask_app.models.user import User,Trade
 from flask_bcrypt import Bcrypt
 bcrypt = Bcrypt(app)
 
@@ -12,6 +12,9 @@ def to_main():
 def dash():
     return render_template('dashboard.html')
 
+@app.route('/new/user')
+def new_user():
+    return render_template('new_user.html')
 @app.route('/user/register',methods=["POST"])
 def ureg():
     if not User.validate_register(request.form):
@@ -28,15 +31,26 @@ def ureg():
         "state": request.form['st'],
         "password": request.form['pswd']
     }
-    user = User.save(data)
+    user = User.create_user(data)
     session['user_id'] = user
-    
-    return redirect('user/id/profile')
+    skills ={
+        "carpentry": request.form['carp'],
+        "cement": request.form['cem'],
+        "drywall": request.form['dry'],
+        "heavy_machinery": request.form['hvmc'],
+        "high_v_electrivity": request.form['high'],
+        "home_electricity": request.form['home'],
+        "hvac": request.form['hvac'],
+        "plumbing": request.form['plmg'],
+        "user_id": session['user_id']
+    }
+    User.save_skills(skills)
+    return redirect('user/profile')
 
-app.route('/user/id/profile')
+app.route('/user/profile')
 def prof():
 
-    return render_template( 'profile.html', user = User.get_user({"id":session['user_id']}) )
+    return render_template( 'profile.html')
 
 app.route('/create/profile')
 def create_prof():
