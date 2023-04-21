@@ -28,4 +28,83 @@ class Business:
         query = "SELECT * FROM businesses WHERE id = %(id)s;"
         results = connectToMySQL(Business.db).query_db(query,data)
         return cls(results[0])
-        
+                                     
+    @classmethod
+    def bget_by_email(cls,data):
+        query = "SELECT * FROM businesses WHERE email = %(eml)s;"
+        results = connectToMySQL(cls.db).query_db(query,data)
+        if len(results) < 1:
+            return False
+        return cls(results[0])
+    
+    @classmethod
+    def update_biz(cls, data):
+        query = " UPDATE businesses SET first_name=%(first_name)s,last_name=%(last_name)s,email=%(email)s,business_name=%(business_name)s,address=%(address)s,city=%(city)s,state=%(state)s,updated_at=NOW() WHERE id = %(id)s;"
+        return connectToMySQL(Business.db).query_db( query, data )
+    
+    @staticmethod
+    def validate_register(user):
+        is_valid = True
+        query = "SELECT * FROM users WHERE email = %(eml)s;"
+        results = connectToMySQL(Business.db).query_db(query,user)
+        if len(results) >= 1:
+            flash("Email already taken.","register")
+            is_valid = False
+        if not EMAIL_REGEX.match(user['eml']):
+            flash("Invalid Email","register")
+            is_valid = False
+        if len(user['fname']) < 3:
+            flash("First name must be at least 2 characters","register")
+            is_valid = False
+        if len(user['lname']) < 3:
+            flash("Last name must be at least 2 characters","register")
+            is_valid = False
+        if len(user['bname']) < 3:
+            flash("Business name must be 3 characters", "register")
+            is_valid = False
+        if len(user['adrs']) < 8:
+            flash("Address must be at least 8 characters","register")
+            is_valid = False
+        if len(user['city']) < 4:
+            flash("City must be at least 4 characters","register")
+            is_valid = False
+        if len(user['st']) != 2:
+            flash("State must be 2 characters","register")
+            is_valid = False
+        if len(user['pswd']) < 8:
+            flash("Password must be at least 8 characters","register")
+            is_valid = False
+        if user['pswd'] != user['con']:
+            flash("Passwords don't match","register")
+            is_valid = False
+        return is_valid
+    @staticmethod
+    def validate_update(user):
+        is_valid = True
+        query = "SELECT * FROM users WHERE email = %(eml)s;"
+        results = connectToMySQL(Business.db).query_db(query,user)
+        if len(results) >= 1:
+            flash("Email already taken.","register")
+            is_valid = False
+        if not EMAIL_REGEX.match(user['eml']):
+            flash("Invalid Email","register")
+            is_valid = False
+        if len(user['fname']) < 3:
+            flash("First name must be at least 2 characters","register")
+            is_valid = False
+        if len(user['lname']) < 3:
+            flash("Last name must be at least 2 characters","register")
+            is_valid = False
+        if len(user['bname']) < 3:
+            flash("Business name must be at least 3 characters","register")
+            is_valid = False
+        if len(user['adrs']) < 8:
+            flash("Address must be at least 8 characters","register")
+            is_valid = False
+        if len(user['city']) < 4:
+            flash("City must be at least 4 characters","register")
+            is_valid = False
+        if len(user['st']) != 2:
+            flash("State must be 2 characters","register")
+            is_valid = False
+        return is_valid

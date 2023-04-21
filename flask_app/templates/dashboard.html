@@ -7,7 +7,7 @@
     <title>Bootstraps</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/dashboard.css') }}">
 </head>
-<body>
+<body class="main">
     <div class="head">
         <h1 class="lhead">Bootstraps</h1>
         <div class="rhead  shead">
@@ -17,8 +17,8 @@
     </div>
     <div class="bmain">
         <div class="state">
-            <p>Looking for Postings in a different state:</p>
-            <ul>
+            <p class="big">Looking for Postings in a different state:</p>
+            <ul class="none">
                 <li><a href="/jobs/Ak">Ak</a></li>
                 <li><a href="/jobs/Al">Al</a></li>
                 <li><a href="/jobs/Ar">Ar</a></li>
@@ -70,11 +70,61 @@
                 <li><a href="/jobs/Wy">Wy</a></li>
             </ul>
         </div>
-        <div>
-            <div></div>
-            <div></div>
+        <div class="tables">
+            <p class="tbig">Job postings near you</p>
+            <table>
+                <tr>
+                    <th class="big">Title</th>
+                    <th class="big">Requirements</th>
+                    <th class="big">Description</th>
+                    <th class="big">Hours</th>
+                    <th class="big">Contract</th>
+                    <th class="big">Company name</th>
+                    <th class="big">City</th>
+                    <th class="big">Application</th>
+                </tr>
+                {% for c_job in c_jobs %}
+                    <tr>
+                        <td class="big">{{c_job.title}}</td>
+                        <td>{{c_job.requirement}}</td>
+                        <td>{{c_job.description}}</td>
+                        <td class="big">{{c_job.hours}}</td>
+                        <td class="big">{{c_job.time_frame}}</td>
+                        <td class="big">{{c_job.creator.business_name}}</td>
+                        <td class="big">{{c_job.creator.city}}</td>
+                        <td class="big">{{c_job.creator.company}}</td>
+                        <td class="big"><a href="http://localhost:5000/apply/{{c_job.id}}">Apply</a></td>
+                    </tr>
+                {% endfor %}
+            </table>
+
+            <p class="tbig">Job postings a bit further in your state</p>
+            <table>
+                <tr>
+                    <th class="big">Title</th>
+                    <th class="big">Requirements</th>
+                    <th class="big">Description</th>
+                    <th class="big">Hours</th>
+                    <th class="big">Contract</th>
+                    <th class="big">Company name</th>
+                    <th class="big">City</th>
+                    <th class="big">Application</th>
+                </tr>
+                {% for s_job in s_jobs %}
+                    <tr>
+                        <td class="big">{{s_job.title}}</td>
+                        <td>{{s_job.requirement}}</td>
+                        <td>{{s_job.description}}</td>
+                        <td class="big">{{s_job.hours}}</td>
+                        <td class="big">{{s_job.time_frame}}</td>
+                        <td class="big">{{s_job.creator.business_name}}</td>
+                        <td class="big">{{s_job.creator.city}}</td>
+                        <td class="big">{{s_job.creator.company}}</td>
+                        <td class="big"><a href="http://localhost:5000/apply/{{s_job.id}}">Apply</a></td>
+                    </tr>
+                {% endfor %}
+            </table>
         </div>
     </div>
-    
 </body>
 </html>

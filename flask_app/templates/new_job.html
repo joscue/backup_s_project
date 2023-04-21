@@ -10,38 +10,39 @@
 <body>
     <div class="head">
         <h1 class="lhead">Bootstraps</h1>
-        <h2 class="rhead"><a class="link" href="http://localhost:5000/"> Log in</a></h2>
-        <h2 class="rhead">Profile<a class="link" href="http://localhost:5000/logout"> Log out</a></h2>
+        <div class="rhead  shead">
+            <h2><a class="link" href="http://localhost:5000/biz/profile">Profile</a></h2>
+            <h2 class="rhead"><a class="link" href="http://localhost:5000/user/logout">Logout</a></h2>
+        </div>
     </div>
     <div class="reg">
-        <h3 class="treg tbig">Get started! Register today!</h3>
+        <h3 class="treg tbig">Find reliable professionals today!</h3>
         {% for message in get_flashed_messages(category_filter=['register']) %}
             <p>{{message}}</p>
         {% endfor %}
-        <form class="form" action="/register/business" method="POST">
+        <form class="form" action="/create/job" method="POST">
             <div class="box">
-                <p class="left big">First Name:</p>
-                <textarea class="text right big" name="fname" id="" cols="20" rows="1"></textarea>
-                <p class="left big">Last Name:</p>
-                <textarea class="text right big" name="lname" id="" cols="20" rows="1"></textarea>
-                <p class="left big">Email:</p>
-                <textarea class="text right big" name="eml" id="" cols="20" rows="1"></textarea>
+                <p class="left big">Title:</p>
+                <textarea class="text right big" name="ttl" id="" cols="20" rows="1"></textarea>
+                <p class="left big">description:</p>
+                <textarea class="text right big" name="desc" id="" cols="20" rows="4"></textarea>
+                <p class="left big">Hours:</p>
+                <select class="right big" name="hrs" id="">
+                    <option class="big" name="hrs" value="Full-time">Full-time</option>
+                    <option class="big" name="hrs" value="Part-time">Part-time</option>
+                </select>
             </div>
             <div class="box">
-                <p class="sleft big">Name of Business</p>
-                <textarea class="text sright big" name="bname" id="" cols="20" rows="1"></textarea>
-                <p class="sleft big">Address:</p>
-                <textarea class="text sright big" name="adrs" id="" cols="20" rows="1"></textarea>
-                <p class="sleft big">City:</p>
-                <textarea class="text sright big" name="city" id="" cols="20" rows="1"></textarea>
-                <p class="sleft big">State:</p>
-                <textarea class="text sright big" name="st" id="" cols="3" rows="1"></textarea>
-            </div>
-            <div class="box">
-                <p class="bleft big">Password:</p>
-                <textarea class="text bright big" name="pswd" id="" cols="20" rows="1"></textarea>
-                <p class="bleft big">Confirm:</p>
-                <textarea class="text bright big" name="con" id="" cols="20" rows="1"></textarea>
+                <p class="sleft big">Salary:</p>
+                <textarea class="text sright big" name="sal" id="" cols="20" rows="1"></textarea>
+                
+                <p class="sleft big">Time-frame:</p>
+                <select class="sright big" name="tmfm" id="">
+                    <option class="big" name="tmfm" value="Contract">Contract</option>
+                    <option class="big" name="tmfm" value="Permanent">Permanent</option>
+                </select>
+                <p class="sleft big">Requirements:</p>
+                <textarea class="text sright big" name="req" id="" cols="20" rows="4"></textarea>
             </div>
             <div class="bcenter">
                 <input class="button big" type="submit" value="Register">

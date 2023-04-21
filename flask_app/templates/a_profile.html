@@ -11,25 +11,20 @@
     <div class="head">
         <h1 class="lhead">Bootstraps</h1>
         <div class="rhead  shead">
-            <h2><a class="link" href="http://localhost:5000/dashboard">Find a job!</a></h2>
+            <h2><a class="link" href="http://localhost:5000/biz/profile">Profile</a></h2>
             <h2 class="rhead"><a class="link" href="http://localhost:5000/user/logout">Logout</a></h2>
         </div>
     </div>
     <div class="reg">
-        <h3 class="treg tbig">Edit your account <a href="http://localhost:5000/edit/user">here</a></h3>
-            <div class="first">
+            <div class="first top">
                 <p class="left big">First Name: {{user.first_name}}</p>
                 <p class="big">Last Name: {{user.last_name}}</p>
                 <p class="right big">Email: {{user.email}}</p>
             </div>
             <div class="rest">
                 <div class="second">
-                    <div class="fsecond">
-                        <p class="left big">Birthday: {{user.birthday}}</p>
-                        <p class="right big">Resume:</p>
-                    </div>
                     <div class="first">
-                        <p class="left big">Street Address: {{user.address}}</p>
+                        <p class="left big">Resume:</p>
                         <p class="big">City: {{user.city}}</p>
                         <p class="right big">State: {{user.state}}</p>
                     </div>
@@ -70,7 +65,7 @@
                     </div>
                 </div>
                 <div class="third">
-                    <p class="tdesc treg big">Your description:</p>
+                    <p class="tdesc treg big">Description:</p>
                     <p class="big">{{user.skills}}</p>
                 </div>
                 

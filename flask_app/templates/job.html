@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/new.css') }}">
+</head>
+<body>
+    <div class="head">
+        <h1 class="lhead">Bootstraps</h1>
+        <div class="rhead  shead">
+            <h2><a class="link" href="http://localhost:5000/biz/profile">Profile</a></h2>
+            <h2 class="rhead"><a class="link" href="http://localhost:5000/user/logout">Logout</a></h2>
+        </div>
+    </div>
+    <div class="reg">
+        <h3 class="treg tbig">Find reliable professionals today!</h3>
+        <div class="cont">
+            <div class="ljob">
+                <p class="big">Applicants:</p>
+                <ul>
+                    {% for apply in applys %}
+                        <li>{{apply.creator.first_name}} {{apply.creator.last_name}} <a href="http://localhost:5000/applicant/{{job.id}}"> View</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <form class="form wide" action="/create/job" method="POST">
+                <div class="box">
+                    <p class="big">Title: {{job.title}}</p>
+                    <p class="big">description: {{job.description}}</p>
+                </div>
+                <div class="box">
+                    <p class="big">Hours: {{job.hours}}</p>
+                    <p class="big">Salary: {{job.salary}}</p>
+                </div>
+                <div class="box sbottom">
+                    <p class="big">Time-frame: {{job.time_frame}}</p>
+                    <p class="big">Requirements: {{job.requirement}}</p>
+                </div>
+            </form>            
+        </div>
+
+    </div>
+</body>
+</html>

@@ -12,20 +12,20 @@
         <h1 class="lhead">Bootstraps</h1>
         <div class="rhead  shead">
             <h2><a class="link" href="http://localhost:5000/new/job">Post a job!</a></h2>
-            <h2 class="rhead"><a class="link" href="http://localhost:5000/user/logout">Logout</a></h2>
+            <h2 class="rhead"><a class="link" href="http://localhost:5000/biz/logout">Logout</a></h2>
         </div>
         
     </div>
     <div class="reg">
-        <h3 class="treg tbig">Get started! Register today!</h3>
+        <h3 class="treg tbig">Edit your account <a href="http://localhost:5000/edit/biz">here</a></h3>
         <div class="cont">
             <div class="ljob">
-                <div>
-                    <p class="big">Your job postings:</p>
-                    <ul>
-                        <li></li>
-                    </ul>
-                </div>
+                <p class="big">Your job postings:</p>
+                <ul class="list">
+                    {% for job in jobs %}
+                        <li><a href="http://localhost:5000/job/{{job.id}}">{{job.title}}</a>  <a href="http://localhost:5000/delete/{{job.id}}">Delete</a></li>
+                    {% endfor %}
+                </ul>
             </div>
             <form class="form bottom" action="business/register" method="POST">
                 <div class="box">

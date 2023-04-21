@@ -1,6 +1,7 @@
 * {
     margin: 0px;
     padding: 0px;
+    font-family: 'Times New Roman', Times, serif;
 }
 .head {
     width: 100%;
@@ -105,7 +106,6 @@
     align-items: center;
 }
 .form {
-    width: 70%;
     height: 450px;
     display: flex;
     flex-direction: column;
@@ -150,4 +150,20 @@
 }
 .bottom {
     margin-bottom: 30px;
+    width: 70%;
+}
+.top {
+    margin-top: 30px;
+}
+.ljob {
+    margin-left: 6%;
+}
+.list {
+    list-style-type: none;
+}
+.wide {
+    width: 50%;
+}
+.sbottom {
+    margin: 40px;
 }

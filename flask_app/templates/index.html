@@ -17,7 +17,7 @@
         <div class="reg_log">
             <h2 class="tlog">Tradesman</h2>
             <div class="log">
-                {% for message in get_flashed_messages(category_filter=['login']) %}
+                {% for message in get_flashed_messages(category_filter=['ulogin']) %}
                     <p>{{message}}</p>
                 {% endfor %}
                 <h3 class="llog">Log in</h3>
@@ -44,7 +44,7 @@
                     <p>{{message}}</p>
                 {% endfor %}
                 <h3 class="llog">Log in</h3>
-                <form action="business/login" method="POST">
+                <form action="biz/login" method="POST">
                     <div class="clog">
                         <p class="plog">Email:</p>
                         <textarea class="lllog" name="eml" id="" cols="20" rows="1"></textarea>

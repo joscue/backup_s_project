@@ -10,17 +10,16 @@
 <body>
     <div class="head">
         <h1 class="lhead">Bootstraps</h1>
-        <h2 class="rhead">Already have an account? <a class="link" href="http://localhost:5000/"> Log in</a></h2>
+        <h2 class="rhead"><a class="link" href="http://localhost:5000/user/profile">Profile</a></h2>
     </div>
     <div class="reg">
-        <h3 class="treg">Get started! Register today!</h3>
+        <h3 class="treg">Please fill all fields</h3>
         <p>
-        {% for message in get_flashed_messages(category_filter=['register']) %}
-            {{message}}.  
-        {% endfor %}
+            {% for message in get_flashed_messages(category_filter=['register']) %}
+                {{message}}.  
+            {% endfor %}
         </p>
-        
-        <form action="/user/register" method="POST" enctype="multipart/form-data">
+        <form action="/user/update" method="POST" enctype="multipart/form-data">
             <div class="first">
                 <p class="left">First Name:</p>
                 <textarea class="right text" name="fname" id="" cols="20" rows="1"></textarea>
@@ -38,18 +37,10 @@
                         <textarea class="text right" name="adrs" id="" cols="30" rows="1"></textarea>
                     </div>
                     <div class="first">
-
                         <p class="bleft">City:</p>
                         <textarea class="text bright" name="city" id="" cols="20" rows="1"></textarea>
                         <p class="bleft">State</p>
-                        <textarea class="text bright" name="st" id="" cols="2" rows="1"></textarea>
-                        
-                    </div>
-                    <div class="first">
-                        <p class="left">Password:</p>
-                        <textarea class="right text" name="pswd" id="" cols="20" rows="1"></textarea>
-                        <p class="left">Confirm:</p>
-                        <textarea class="right text" name="con" id="" cols="20" rows="1"></textarea>
+                        <textarea class="text bright" name="st" id="" cols="2" rows="1"></textarea>  
                     </div>
                     <p class="treg">Enter the years of experience you have in each field, if none then just write "0"</p>
                     <div class="categ">
@@ -103,7 +94,7 @@
             </div>
             
             <div class="center">
-                <input class="button" type="submit" value="Register">
+                <input class="button" type="submit" value="Update">
             </div>
         </form>
     </div>
